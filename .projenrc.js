@@ -3,12 +3,12 @@ const { NpmAccess } = require('projen/lib/javascript');
 const project = new cdktf.ConstructLibraryCdktf({
   author: 'Sahana Pranesh',
   authorAddress: 'sahana.pranesh@everest.engineering',
-  cdktfVersion: '^0.14.3',
+  cdktfVersion: '^0.14.1',
   defaultReleaseBranch: 'main',
   repositoryUrl: 'git@github.com:everest-engineering/starter-infra-aws-cdktf.git',
   releaseToNpm: true,
   npmAccess: NpmAccess.PUBLIC,
-  deps: [
+  peerDeps: [
     '@cdktf/provider-aws',
     '@eryldor/cidr'
   ],

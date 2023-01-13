@@ -1,5 +1,5 @@
 {
-  "name": "starter-infra-aws-cdktf",
+  "name": "@everest/starter-infra-aws-cdktf",
   "repository": {
     "type": "git",
     "url": "git@github.com:everest-engineering/starter-infra-aws-cdktf.git"
@@ -30,7 +30,7 @@
   },
   "author": {
     "name": "Sahana Pranesh",
-    "email": "sahana.pranesh@estimateone.com",
+    "email": "sahana.pranesh@everest.engineering",
     "organization": false
   },
   "devDependencies": {
@@ -38,7 +38,7 @@
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "cdktf": "0.13.0",
+    "cdktf": "0.14.3",
     "constructs": "10.0.12",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.7",
@@ -55,11 +55,16 @@
     "projen": "^0.66.13",
     "standard-version": "^9",
     "ts-jest": "^27",
+    "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
   },
   "peerDependencies": {
-    "cdktf": "^0.13.0",
+    "cdktf": "^0.14.3",
     "constructs": "^10.0.12"
+  },
+  "dependencies": {
+    "@cdktf/provider-aws": "^11.0.9",
+    "@eryldor/cidr": "^1.0.5"
   },
   "keywords": [
     "cdk",
@@ -67,6 +72,9 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0",
   "jest": {
     "testMatch": [

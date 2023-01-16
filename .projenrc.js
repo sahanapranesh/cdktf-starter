@@ -16,6 +16,7 @@ const project = new cdktf.ConstructLibraryCdktf({
     '@eryldor/cidr',
   ],
   devDeps: [
+    'constructs',
     '@types/jest',
     '@types/node',
     'jest',

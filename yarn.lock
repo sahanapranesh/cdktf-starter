@@ -291,10 +291,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdktf/provider-aws@11.0.9":
-  version "11.0.9"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-aws/-/provider-aws-11.0.9.tgz#cc32129d9a1ce485a181dec260a6a688c2def9f2"
-  integrity sha512-Ya0hsolsMih3YLB1Vk8U0eEvIBCakGpyDKc1nwyDywtC1vFIioehhJU3KS4i6rNlrFNqYmAjiudSjF/rkekqLg==
+"@cdktf/provider-aws@^11.0.10":
+  version "11.0.10"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-aws/-/provider-aws-11.0.10.tgz#f9c581bb0086b6f3b9ed4dd6fb35b2964f1568c4"
+  integrity sha512-DP5lNbei8xP3dCT7qB/xGwFhIFleqlK5kOryq0X+9Oz0/oOIAcxLtYrU7bj+njR6PWFIFhXJs3fCJ9mjw5jKBQ==
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
@@ -303,7 +303,7 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@eryldor/cidr@1.0.5":
+"@eryldor/cidr@^1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@eryldor/cidr/-/cidr-1.0.5.tgz#37d4e09053d1ddd752c6124f43dc2a96691efeee"
   integrity sha512-xywK4iR1mrQfWxDn2utFz4y9RYW6rYq76cxuc4+3t4ZHb3jrF4GvBJCuYYZJJOkuu97yMWur2445w2tdHvwHJg==
@@ -1601,10 +1601,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdktf@0.14.1:
-  version "0.14.1"
-  resolved "https://registry.yarnpkg.com/cdktf/-/cdktf-0.14.1.tgz#5cb1ea44b566d34aa6ccf28241ecaba780cb2906"
-  integrity sha512-pehl8Q3Q96pGMRfoNGKFvEGeQnleh/4HQ19d5K8Wht7F4U+eguuP/Z/0fzJZrgzbBCB4PRZUcHp4G8I5+ITVNg==
+cdktf@0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/cdktf/-/cdktf-0.14.0.tgz#579b0e2406540bec747865a8369218da92ce5237"
+  integrity sha512-WlJ0DmUXz5qsv00pVa9m892BljhB/P0PKJyC6ez7R16f4Oo+IhvaKVgstrn6X9D7djjLp4BIs8MUS0aK4FTOaQ==
   dependencies:
     archiver "5.3.1"
     json-stable-stringify "^1.0.1"

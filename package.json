@@ -34,13 +34,11 @@
     "organization": false
   },
   "devDependencies": {
-    "@cdktf/provider-aws": "11.0.9",
-    "@eryldor/cidr": "1.0.5",
     "@types/jest": "^27",
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "cdktf": "0.14.1",
+    "cdktf": "0.14.0",
     "constructs": "10.0.12",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.7",
@@ -61,10 +59,14 @@
     "typescript": "^4.9.4"
   },
   "peerDependencies": {
-    "@cdktf/provider-aws": "^11.0.9",
+    "@cdktf/provider-aws": "^11.0.10",
     "@eryldor/cidr": "^1.0.5",
-    "cdktf": "^0.14.1",
+    "cdktf": "^0.14.0",
     "constructs": "^10.0.12"
+  },
+  "dependencies": {
+    "@cdktf/provider-aws": "^11.0.10",
+    "@eryldor/cidr": "^1.0.5"
   },
   "keywords": [
     "cdk",

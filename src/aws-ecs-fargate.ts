@@ -40,7 +40,7 @@ export class AwsEcsFargateService extends Construct {
 
     const { serviceName, desiredCount, subnets } = config;
 
-    const ecsCluster = new DataAwsEcsCluster(this, "data-cluster", {
+    const ecsCluster = new DataAwsEcsCluster(this, 'data-cluster', {
       clusterName: config.clusterName,
     });
     // Role that allows us to get the Docker image

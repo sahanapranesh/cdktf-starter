@@ -24,7 +24,7 @@ const project = new cdktf.ConstructLibraryCdktf({
     'ts-node',
     'typescript',
   ],
-  depsUpgrade: false,
+  //depsUpgrade: false,
   packageManager: NodePackageManager.NPM,
 
   // deps: [],                /* Runtime dependencies of this module. */

@@ -16,7 +16,7 @@ export interface AutoScalingConfig {
 }
 
 export interface AwsEcsFargateServiceConfig {
-  cluster: DataAwsEcsCluster;
+  clusterName: string;
   serviceName: string;
   vpcId: string;
   subnets: string[];
@@ -38,8 +38,11 @@ export class AwsEcsFargateService extends Construct {
   constructor(scope: Construct, name: string, config: AwsEcsFargateServiceConfig) {
     super(scope, name);
 
-    const { serviceName, cluster, desiredCount, subnets } = config;
+    const { serviceName, desiredCount, subnets } = config;
 
+    const ecsCluster = new DataAwsEcsCluster(this, "data-cluster", {
+      clusterName: config.clusterName,
+    });
     // Role that allows us to get the Docker image
     const executionRole = new IamRole(scope, 'execution-role', {
       name: `${name}-execution-role`,
@@ -144,7 +147,7 @@ export class AwsEcsFargateService extends Construct {
     this.ecsService = new EcsService(scope, name + 'service', {
       name: serviceName,
       tags: config.tags,
-      cluster: cluster.arn,
+      cluster: ecsCluster.arn,
       taskDefinition: taskDefinition.arn,
       desiredCount: desiredCount,
       launchType: 'FARGATE',
@@ -166,7 +169,7 @@ export class AwsEcsFargateService extends Construct {
       maxCapacity: config.autoScalingConfig.maxCapacity,
       scalableDimension: 'ecs:service:DesiredCount',
       serviceNamespace: 'ecs',
-      resourceId: 'service/' + cluster.clusterName + '/' + this.ecsService.name,
+      resourceId: 'service/' + ecsCluster.clusterName + '/' + this.ecsService.name,
     });
 
   }

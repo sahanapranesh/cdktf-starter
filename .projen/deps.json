@@ -100,6 +100,11 @@
       "type": "build"
     },
     {
+      "name": "@cdktf/provider-null",
+      "version": "4.0.1",
+      "type": "bundled"
+    },
+    {
       "name": "@eryldor/cidr",
       "type": "bundled"
     },

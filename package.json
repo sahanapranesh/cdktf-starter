@@ -63,10 +63,12 @@
   },
   "dependencies": {
     "@cdktf/provider-aws": "^11.0.10",
+    "@cdktf/provider-null": "4.0.1",
     "@eryldor/cidr": "^1.0.5",
     "constructs": "^10.1.228"
   },
   "bundledDependencies": [
+    "@cdktf/provider-null",
     "@eryldor/cidr"
   ],
   "keywords": [

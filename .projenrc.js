@@ -8,8 +8,15 @@ const project = new cdktf.ConstructLibraryCdktf({
   name: 'starter-infra-aws-cdktf',
   repositoryUrl:
     'git@github.com:everest-engineering/starter-infra-aws-cdktf.git',
-  deps: ['@cdktf/provider-aws', 'constructs', '@eryldor/cidr'],
-  bundledDeps: ['@eryldor/cidr'],
+  deps: [
+    '@cdktf/provider-aws',
+    'constructs',
+    '@eryldor/cidr',
+  ],
+  bundledDeps: [
+    '@eryldor/cidr',
+    '@cdktf/provider-null@4.0.1',
+  ],
   devDeps: [
     '@types/jest',
     '@types/node',

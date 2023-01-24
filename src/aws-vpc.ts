@@ -97,7 +97,8 @@ function getPrivateInboundAclRules(vpcCidr: CIDRBlock): { [key: string]: string;
   ]
 }
 
-function getAclRule(rule_number: string, rule_action: string, from_port: string, to_port: string, protocol: string, cidr_block: CIDRBlock): { [key: string]: string; } {
+function getAclRule(rule_number: string, rule_action: string, from_port: string, to_port: string, protocol: string, cidr_block: CIDRBlock): 
+{ [key: string]: string; } {
   return {
     'rule_number': rule_number,
     'rule_action': rule_action,

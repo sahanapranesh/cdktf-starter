@@ -31,6 +31,7 @@ export class AwsEfs extends Construct {
       tags: config.tags,
     });
 
+    //Works on the assumption that we have atleast 2 subnets where we need to create mount points
     new EfsMountTarget(scope, name + '-efs-mount-target-1', {
       fileSystemId: this.efs.id,
       subnetId: Fn.element(config.subnets, 0),

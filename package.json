@@ -47,11 +47,11 @@
     "jest-junit": "^13",
     "jsii": "^1.73.0",
     "jsii-diff": "^1.73.0",
-    "jsii-docgen": "^7.0.212",
+    "jsii-docgen": "^7.0.213",
     "jsii-pacmak": "^1.73.0",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^16",
-    "projen": "^0.67.11",
+    "projen": "^0.67.12",
     "standard-version": "^9",
     "ts-jest": "^27",
     "ts-node": "^10.9.1",
@@ -65,7 +65,7 @@
     "@cdktf/provider-aws": "^11.0.10",
     "@cdktf/provider-null": "4.0.1",
     "@eryldor/cidr": "^1.0.5",
-    "constructs": "^10.1.229"
+    "constructs": "^10.1.230"
   },
   "bundledDependencies": [
     "@cdktf/provider-null",

@@ -13,7 +13,7 @@
       "version": "~> 3.0"
     }
   ],
-  "codeMakerOutput": "imports",
+  "codeMakerOutput": "src/imports",
   "context": {
     "excludeStackIdFromLogicalIds": "true",
     "allowSepCharsInLogicalIds": "true"

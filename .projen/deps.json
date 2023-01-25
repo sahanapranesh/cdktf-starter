@@ -119,6 +119,10 @@
       "type": "override"
     },
     {
+      "name": "@cdktf/provider-aws",
+      "type": "peer"
+    },
+    {
       "name": "cdktf",
       "version": "^0.14.0",
       "type": "peer"

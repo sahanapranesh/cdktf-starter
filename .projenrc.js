@@ -17,6 +17,10 @@ const project = new cdktf.ConstructLibraryCdktf({
     '@eryldor/cidr',
     '@cdktf/provider-null@4.0.1',
   ],
+  peerDeps: [
+    '@cdktf/provider-aws',
+    'constructs',
+  ],
   devDeps: [
     '@types/jest',
     '@types/node',

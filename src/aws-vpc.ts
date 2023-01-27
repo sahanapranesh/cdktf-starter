@@ -115,6 +115,8 @@ function getPrivateOutboundAclRules(vpcCidr: CIDRBlock): { [key: string]: string
     getAclRule('110', 'allow', '443', '443', 'tcp', CIDRBlock.fromString('0.0.0.0/0')),
     getAclRule('120', 'allow', '80', '80', 'tcp', CIDRBlock.fromString('0.0.0.0/0')),
     getAclRule('130', 'allow', '1024', '65535', 'tcp', CIDRBlock.fromString('0.0.0.0/0')),
+    getAclRule('140', 'allow', '25', '25', 'tcp', CIDRBlock.fromString('0.0.0.0/0')),
+    getAclRule('150', 'allow', '465', '465', 'tcp', CIDRBlock.fromString('0.0.0.0/0')),
   ];
 }
 

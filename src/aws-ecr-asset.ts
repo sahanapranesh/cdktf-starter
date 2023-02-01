@@ -1,21 +1,18 @@
-import { DataAwsEcrImage } from '@cdktf/provider-aws/lib/data-aws-ecr-image';
 import { EcrRepository } from '@cdktf/provider-aws/lib/ecr-repository';
 import { TerraformOutput } from 'cdktf';
 import { Construct } from 'constructs';
 import { IPrincipal } from './aws-iam-role';
 
-export interface AwsEcrAssetConfig {
+export interface AwsEcrRepositoryConfig {
   name: string;
-  imageTag: string;
   tags: any;
 }
 
-export class AwsEcrAsset extends Construct {
-  public readonly image: string;
+export class AwsEcrRepository extends Construct {
   public readonly repository: EcrRepository;
   public readonly imageDigest?: string;
 
-  constructor(scope: Construct, name: string, config: AwsEcrAssetConfig) {
+  constructor(scope: Construct, name: string, config: AwsEcrRepositoryConfig) {
     super(scope, name);
 
     const compatibleName = config.name.toLowerCase();
@@ -34,17 +31,9 @@ export class AwsEcrAsset extends Construct {
       tags: config.tags,
     });
 
-    const data = new DataAwsEcrImage(this, 'image', {
-      repositoryName: this.repository.name,
-      imageTag: config.imageTag,
-    });
-
     new TerraformOutput(this, 'ecr', {
       value: this.repository.repositoryUrl,
     });
-
-    this.image = this.repository.repositoryUrl;
-    this.imageDigest = data.imageDigest;
   }
 
   public grantPull(principal: IPrincipal) {

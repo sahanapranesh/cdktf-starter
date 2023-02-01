@@ -31,11 +31,6 @@ const project = new cdktf.ConstructLibraryCdktf({
   ],
   //depsUpgrade: false,
   packageManager: NodePackageManager.NPM,
-
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
 });
 
 const common_exclude = ['cdktf.out', 'imports', 'yarn.lock'];

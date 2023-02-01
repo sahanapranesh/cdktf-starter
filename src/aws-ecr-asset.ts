@@ -7,6 +7,7 @@ import { IPrincipal } from './aws-iam-role';
 export interface AwsEcrAssetConfig {
   name: string;
   imageTag: string;
+  tags: any;
 }
 
 export class AwsEcrAsset extends Construct {
@@ -21,6 +22,16 @@ export class AwsEcrAsset extends Construct {
 
     this.repository = new EcrRepository(this, 'dockerAsset', {
       name: compatibleName,
+      encryptionConfiguration: [
+        {
+          encryptionType: 'KMS',
+        },
+      ],
+      imageScanningConfiguration: {
+        scanOnPush: true,
+      },
+      imageTagMutability: 'IMMUTABLE',
+      tags: config.tags,
     });
 
     const data = new DataAwsEcrImage(this, 'image', {

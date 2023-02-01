@@ -8,6 +8,7 @@ export interface AwsElasticacheConfig {
   privateSubnetIds: string[];
   replicationGroupDescription: string;
   cacheInstanceType: string;
+  cacheEngine: string;
   securityGroupId: string;
   tags: any;
 }
@@ -16,16 +17,16 @@ export class AwsElasticCache extends Construct {
   constructor(scope: Construct, name: string, config: AwsElasticacheConfig) {
     super(scope, name);
 
-    const redisSubnetGroup = new ElasticacheSubnetGroup(scope, 'redis-subnet-group', {
-      name: name + '-redis-subnet-group',
+    const redisSubnetGroup = new ElasticacheSubnetGroup(scope, 'elasticache-subnet-group', {
+      name: name + '-elasticache-subnet-group',
       subnetIds: config.privateSubnetIds,
     });
 
-    new ElasticacheReplicationGroup(scope, 'redis', {
-      replicationGroupId: name + '-redis-replication-group',
+    new ElasticacheReplicationGroup(scope, 'elasticache', {
+      replicationGroupId: name + '-elasticache-replication-group',
       tags: config.tags,
       replicationGroupDescription: config.replicationGroupDescription,
-      engine: 'redis',
+      engine: config.cacheEngine,
       nodeType: config.cacheInstanceType,
       numCacheClusters: 2,
       multiAzEnabled: true,

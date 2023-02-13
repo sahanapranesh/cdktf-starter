@@ -2,7 +2,6 @@ import { DbInstance } from '@cdktf/provider-aws/lib/db-instance';
 import { DbOptionGroup } from '@cdktf/provider-aws/lib/db-option-group';
 import { DbParameterGroup } from '@cdktf/provider-aws/lib/db-parameter-group';
 import { DbSubnetGroup } from '@cdktf/provider-aws/lib/db-subnet-group';
-import { SecurityGroup } from '@cdktf/provider-aws/lib/security-group';
 import { Token } from 'cdktf';
 import { Construct } from 'constructs';
 
@@ -10,11 +9,11 @@ interface AwsMysqlDBConfig {
   name: string;
   subnets: string[];
   vpc: string;
-  ingressCidrBlock: string[];
   tags: any;
   dbname: string;
   username: string;
   password: string;
+  securityGroups: string[];
 }
 
 export class AwsMysqlDB extends Construct {
@@ -38,34 +37,6 @@ export class AwsMysqlDB extends Construct {
         name: id + '-param-gp',
         family: 'mysql8.0',
         description: 'Parameter group DB',
-        tags: options.tags,
-      },
-    );
-
-    const rdsSecurityGroup = new SecurityGroup(
-      scope,
-      id + '-security-group',
-      {
-        name: id + '-security-group',
-        description: 'Firewall for RDS instance',
-        vpcId: options.vpc,
-        ingress: [
-          {
-            fromPort: 3306,
-            toPort: 3306,
-            cidrBlocks: options.ingressCidrBlock,
-            protocol: 'tcp',
-          },
-        ],
-        egress: [
-          {
-            fromPort: 0,
-            toPort: 0,
-            protocol: '-1',
-            cidrBlocks: ['0.0.0.0/0'],
-            ipv6CidrBlocks: ['::/0'],
-          },
-        ],
         tags: options.tags,
       },
     );
@@ -100,7 +71,7 @@ export class AwsMysqlDB extends Construct {
       dbSubnetGroupName: Token.asString(dbSubnetGroup.name),
       parameterGroupName: dbParameterGroup.name,
       optionGroupName: dbOptionGroup.name,
-      vpcSecurityGroupIds: [rdsSecurityGroup.id],
+      vpcSecurityGroupIds: options.securityGroups,
       tags: options.tags,
     });
   }

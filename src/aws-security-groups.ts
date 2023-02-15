@@ -84,7 +84,7 @@ export class AwsSecurityGroups extends Construct {
         cidrBlocks: [anyIp],
       },
       {
-        protocol: 'ssh',
+        protocol: 'tcp',
         fromPort: 22,
         toPort: 22,
         cidrBlocks: [anyIp],

@@ -1,7 +1,6 @@
 import { EcrRepository } from '@cdktf/provider-aws/lib/ecr-repository';
 import { TerraformOutput } from 'cdktf';
 import { Construct } from 'constructs';
-import { IPrincipal } from './aws-iam-role';
 
 export interface AwsEcrRepositoryConfig {
   name: string;
@@ -34,16 +33,5 @@ export class AwsEcrRepository extends Construct {
     new TerraformOutput(this, 'ecr', {
       value: this.repository.repositoryUrl,
     });
-  }
-
-  public grantPull(principal: IPrincipal) {
-    const actions = [
-      'ecr:GetAuthorizationToken',
-      'ecr:BatchCheckLayerAvailability',
-      'ecr:GetDownloadUrlForLayer',
-      'ecr:BatchGetImage',
-    ];
-    principal.grant('ecr-pull', actions, this.repository.arn);
-    principal.grant('ecr-login', ['ecr:GetAuthorizationToken']);
   }
 }

@@ -7,15 +7,16 @@ export interface AwsIamRoleConfig {
 }
 
 export class AwsIamRole extends Construct {
-
-  constructor(scope: Construct, name: string) {
+  tags: any;
+  constructor(scope: Construct, name: string, config: AwsIamRoleConfig) {
     super(scope, name);
+    this.tags = config.tags;
   }
 
-  public getEcstaskRole(scope: Construct, name: string, config: AwsIamRoleConfig) {
+  public getEcstaskRole(scope: Construct, name: string) {
     return new IamRole(scope, 'task-role', {
       name: `${name}-task-role`,
-      tags: config.tags,
+      tags: this.tags,
       inlinePolicy: [
         {
           name: 'allow-logs',
@@ -47,10 +48,10 @@ export class AwsIamRole extends Construct {
     });
   }
 
-  public getEcsTaskExecutionRole(scope: Construct, name: string, config: AwsIamRoleConfig) {
+  public getEcsTaskExecutionRole(scope: Construct, name: string) {
     return new IamRole(scope, 'execution-role', {
       name: `${name}-execution-role`,
-      tags: config.tags,
+      tags: this.tags,
       inlinePolicy: [
         {
           name: 'allow-ecr-pull',
@@ -90,10 +91,10 @@ export class AwsIamRole extends Construct {
     });
   }
 
-  public getEcsSchedulerRole(scope: Construct, name: string, config: AwsIamRoleConfig) {
+  public getEcsSchedulerRole(scope: Construct, name: string) {
     return new IamRole(scope, 'scheduler-role', {
       name: `${name}-scheduler-role`,
-      tags: config.tags,
+      tags: this.tags,
       inlinePolicy: [
         {
           name: 'update-ecs-service',

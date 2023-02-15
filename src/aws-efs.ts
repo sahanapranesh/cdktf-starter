@@ -34,7 +34,7 @@ export class AwsEfs extends Construct {
     for (let i = 0; i < config.subnets.length; i++) {
       new EfsMountTarget(scope, name + '-efs-mount-target' + i, {
         fileSystemId: this.efs.id,
-        subnetId: Fn.element(config.subnets, 0),
+        subnetId: Fn.element(config.subnets, i),
         securityGroups: [config.securityGroupId],
       });
     }

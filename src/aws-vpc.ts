@@ -28,7 +28,7 @@ export class AwsVpc extends Construct {
     });
     const vpcOptions = {
       name: options.name,
-      cidr: options.cidr,
+      cidrBlock: options.cidr,
       azs: [Fn.element(zones.names, 0), Fn.element(zones.names, 1)],
       privateSubnets: privateSubnets.flatMap(privateSubnet => privateSubnet.toString()),
       publicSubnets: publicSubnets.flatMap(subnet => subnet.toString()),
